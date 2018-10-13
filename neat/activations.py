@@ -9,7 +9,7 @@ import types
 
 
 def sigmoid_activation(z):
-    z = max(-60.0, min(60.0, 5.0 * z))
+    #z = max(-60.0, min(60.0, 5.0 * z))
     return 1.0 / (1.0 + math.exp(-z))
 
 
