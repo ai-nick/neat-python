@@ -185,18 +185,25 @@ class Config(object):
                 "Unknown (section 'NEAT') configuration item {!s}".format(unknown_list[0]))
 
         # Parse type sections.
+        self.config_dict = {}
+
         genome_dict = dict(parameters.items(genome_type.__name__))
+        self.config_dict["genome_config"] = genome_dict
         self.genome_config = genome_type.parse_config(genome_dict)
 
         species_set_dict = dict(parameters.items(species_set_type.__name__))
+        self.config_dict["species_config"] = species_set_dict
         self.species_set_config = species_set_type.parse_config(species_set_dict)
 
         stagnation_dict = dict(parameters.items(stagnation_type.__name__))
+        self.config_dict["stagnation_config"] = stagnation_dict
         self.stagnation_config = stagnation_type.parse_config(stagnation_dict)
 
         reproduction_dict = dict(parameters.items(reproduction_type.__name__))
+        self.config_dict["reproduction_config"] = reproduction_dict
         self.reproduction_config = reproduction_type.parse_config(reproduction_dict)
 
+        
     def save(self, filename):
         with open(filename, 'w') as f:
             f.write('# The `NEAT` section specifies parameters particular to the NEAT algorithm\n')

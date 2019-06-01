@@ -7,7 +7,6 @@ class RecurrentNetwork(object):
         self.input_nodes = inputs
         self.output_nodes = outputs
         self.node_evals = node_evals
-
         self.values = [{}, {}]
         for v in self.values:
             for k in list(inputs) + list(outputs):
