@@ -228,7 +228,7 @@ class DefaultGenome(object):
                             config.connection_fraction),
                         "\tif not, set initial_connection = partial_direct {0}".format(
                             config.connection_fraction),
-                        sep='\n', file=sys.stderr);
+                        sep='\n', file=sys.stderr)
                 self.connect_partial_nodirect(config)
 
     def configure_crossover(self, genome1, genome2, config):
