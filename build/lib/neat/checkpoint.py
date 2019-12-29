@@ -20,7 +20,7 @@ class Checkpointer(BaseReporter):
     to save and restore populations (and other aspects of the simulation state).
     """
     def __init__(self, generation_interval=100, time_interval_seconds=300,
-                 filename_prefix='neat-checkpoint-'):
+                 filename_prefix='neat-checkpoint-', overwrite = False):
         """
         Saves the current state (at the end of a generation) every ``generation_interval`` generations or
         ``time_interval_seconds``, whichever happens first.
@@ -62,7 +62,11 @@ class Checkpointer(BaseReporter):
 
     def save_checkpoint(self, config, population, species_set, generation):
         """ Save the current simulation state. """
-        filename = '{0}{1}'.format(self.filename_prefix,generation)
+        filename = ""
+        if(overwrite == True):
+            filename = '{0}'.format(self.filename_prefix)
+        else:
+            filename = '{0}{1}'.format(self.filename_prefix,generation)
         print("Saving checkpoint to {0}".format(filename))
 
         with gzip.open(filename, 'w', compresslevel=5) as f:
