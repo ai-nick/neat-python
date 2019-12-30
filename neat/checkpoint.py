@@ -63,7 +63,7 @@ class Checkpointer(BaseReporter):
     def save_checkpoint(self, config, population, species_set, generation):
         """ Save the current simulation state. """
         filename = ""
-        if(overwrite == True):
+        if(self.overwrite == True):
             filename = '{0}'.format(self.filename_prefix)
         else:
             filename = '{0}{1}'.format(self.filename_prefix,generation)
