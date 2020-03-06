@@ -38,6 +38,7 @@ class Checkpointer(BaseReporter):
         self.current_generation = None
         self.last_generation_checkpoint = -1
         self.last_time_checkpoint = time.time()
+        self.overwrite = overwrite
 
     def start_generation(self, generation):
         self.current_generation = generation
